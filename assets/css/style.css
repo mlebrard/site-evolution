@@ -289,7 +289,7 @@ p:last-child { margin-bottom: 0; }
 .hero-contenu {
   position: relative;
   z-index: 2;
-  max-width: 560px;
+  max-width: 660px;
   padding: 5rem max(5%, 2rem) 5rem max(5%, 2rem);
 }
 
@@ -316,7 +316,7 @@ p:last-child { margin-bottom: 0; }
 .hero-accroche {
   font-size: 1.05rem;
   color: rgba(255,255,255,0.87);
-  max-width: 440px;
+  max-width: 540px;
   margin-bottom: 2rem;
   line-height: 1.7;
 }
