@@ -253,11 +253,21 @@ p:last-child { margin-bottom: 0; }
 .hero {
   position: relative;
   padding-top: 70px; /* hauteur du header fixe */
-  background-image: url('/assets/images/cabinet/bureau.png');
-  background-size: cover;
-  background-position: center right;
+  background-color: var(--bleu-profond);
   overflow: hidden;
   min-height: 520px;
+}
+
+/* Image de fond — positionnée via img tag pour éviter les problèmes de chemin CSS */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  z-index: 0;
+  display: block;
 }
 
 /* Dégradé opaque à gauche pour lisibilité, fondu vers la photo */
@@ -273,11 +283,12 @@ p:last-child { margin-bottom: 0; }
     transparent 100%
   );
   pointer-events: none;
+  z-index: 1;
 }
 
 .hero-contenu {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 560px;
   padding: 5rem max(5%, 2rem) 5rem max(5%, 2rem);
 }
