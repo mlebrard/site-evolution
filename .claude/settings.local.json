@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /c/Users/mlebr/sites-web/site-evolution/assets/css)",
+      "Bash(mkdir -p /c/Users/mlebr/sites-web/site-evolution/assets/js)",
+      "Bash(mkdir -p /c/Users/mlebr/sites-web/site-evolution/assets/images/cabinet)",
+      "Bash(mkdir -p /c/Users/mlebr/sites-web/site-evolution/blog)",
+      "WebSearch",
+      "Bash(cp /c/Users/mlebr/sites-web/site-evolution/docs/bureau.png /c/Users/mlebr/sites-web/site-evolution/assets/images/cabinet/bureau.png)",
+      "Bash(cp /c/Users/mlebr/sites-web/site-evolution/docs/bureau2.jpg /c/Users/mlebr/sites-web/site-evolution/assets/images/cabinet/bureau2.jpg)",
+      "Bash(cp \"/c/Users/mlebr/sites-web/site-evolution/docs/Certification BC.png\" /c/Users/mlebr/sites-web/site-evolution/assets/images/certification-bc.png)",
+      "Bash(cp /c/Users/mlebr/sites-web/site-naturo/assets/images/ml-portrait.jpg /c/Users/mlebr/sites-web/site-evolution/assets/images/ml-portrait.jpg)",
+      "WebFetch(domain:partenaires.carriererh.fr)",
+      "WebFetch(domain:www.apc-formation.com)",
+      "WebFetch(domain:app.priorise.fr)",
+      "WebFetch(domain:www.vastrh.fr)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "WebFetch(domain:site-naturo.sbe33.fr)",
+      "mcp__plugin_ecc_playwright__browser_navigate",
+      "WebFetch(domain:www.service-public.gouv.fr)",
+      "WebFetch(domain:walter-learning.com)",
+      "Bash(python3:*)",
+      "Bash(node:*)",
+      "mcp__plugin_ecc_playwright__browser_take_screenshot",
+      "Bash(grep:*)"
+    ]
+  }
+}

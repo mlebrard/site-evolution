@@ -253,7 +253,7 @@ p:last-child { margin-bottom: 0; }
 .hero {
   position: relative;
   padding-top: 70px; /* hauteur du header fixe */
-  background-image: url('../images/cabinet/bureau.png');
+  background-image: url('/assets/images/cabinet/bureau.png');
   background-size: cover;
   background-position: center right;
   overflow: hidden;
