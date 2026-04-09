@@ -248,22 +248,38 @@ p:last-child { margin-bottom: 0; }
 .menu-toggle.ouvert span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* ================================================
-   HERO
+   HERO — image plein-cadre + dégradé bleu à gauche
    ================================================ */
 .hero {
-  display: grid;
-  grid-template-columns: 52% 48%;
-  padding-top: 70px;
-  background-color: var(--bleu-profond);
+  position: relative;
+  padding-top: 70px; /* hauteur du header fixe */
+  background-image: url('../images/cabinet/bureau.png');
+  background-size: cover;
+  background-position: center right;
   overflow: hidden;
-  /* Hauteur pilotée par le contenu — pas de 100vh qui laisse du bleu vide */
+  min-height: 520px;
+}
+
+/* Dégradé opaque à gauche pour lisibilité, fondu vers la photo */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(43, 76, 126, 0.97) 0%,
+    rgba(43, 76, 126, 0.93) 38%,
+    rgba(43, 76, 126, 0.55) 60%,
+    rgba(43, 76, 126, 0.10) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
 }
 
 .hero-contenu {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 5rem 3rem 5rem 5%;
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  padding: 5rem max(5%, 2rem) 5rem max(5%, 2rem);
 }
 
 .hero-contenu h1 {
@@ -273,8 +289,8 @@ p:last-child { margin-bottom: 0; }
 
 .hero-identite {
   font-family: var(--font-accent);
-  font-size: 0.92rem;
-  color: rgba(255,255,255,0.75);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.72);
   margin-bottom: 1.25rem;
   display: flex;
   align-items: center;
@@ -288,15 +304,15 @@ p:last-child { margin-bottom: 0; }
 
 .hero-accroche {
   font-size: 1.05rem;
-  color: rgba(255,255,255,0.85);
-  max-width: 460px;
+  color: rgba(255,255,255,0.87);
+  max-width: 440px;
   margin-bottom: 2rem;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 .hero-badges {
   display: flex;
-  gap: 0.65rem;
+  gap: 0.6rem;
   flex-wrap: wrap;
   margin-top: 1.5rem;
 }
@@ -306,41 +322,20 @@ p:last-child { margin-bottom: 0; }
   align-items: center;
   gap: 0.4rem;
   font-family: var(--font-accent);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 500;
   color: rgba(255,255,255,0.9);
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 0.35rem 0.75rem;
+  background: rgba(255,255,255,0.13);
+  border: 1px solid rgba(255,255,255,0.22);
+  padding: 0.3rem 0.7rem;
   border-radius: 20px;
+  backdrop-filter: blur(4px);
 }
 
 .badge svg {
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
   flex-shrink: 0;
-}
-
-.hero-image {
-  position: relative;
-  overflow: hidden;
-  min-height: 480px;
-}
-
-.hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-}
-
-.hero-image::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, var(--bleu-profond) 0%, transparent 35%);
-  z-index: 1;
 }
 
 /* ================================================
@@ -848,9 +843,8 @@ p:last-child { margin-bottom: 0; }
   .approche-badge-flottant { right: 0; bottom: -1rem; }
   .credibilite-grille { grid-template-columns: 1fr; }
   .footer-grille { grid-template-columns: 1fr 1fr; }
-  .hero { grid-template-columns: 1fr; }
-  .hero-image { min-height: 300px; height: 320px; }
-  .hero-contenu { padding: 3rem 1.5rem 2.5rem; }
+  .hero { background-position: center center; }
+  .hero-contenu { padding: 3rem 1.5rem 3rem; max-width: 100%; }
 }
 
 @media (max-width: 640px) {
@@ -883,6 +877,6 @@ p:last-child { margin-bottom: 0; }
   .footer-grille { grid-template-columns: 1fr; }
   .footer-bas { flex-direction: column; text-align: center; }
   .hero-badges { display: none; }
-  .hero-image { min-height: 240px; height: 260px; }
+  .hero-overlay { background: linear-gradient(to bottom, rgba(43,76,126,0.93) 0%, rgba(43,76,126,0.82) 100%); }
   .approche-badge-flottant { display: none; }
 }
