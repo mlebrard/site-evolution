@@ -58,7 +58,7 @@ h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
 h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); }
 h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); }
 
-p { margin-bottom: 1rem; }
+p { margin-bottom: 1rem; text-align: justify; hyphens: auto; }
 p:last-child { margin-bottom: 0; }
 
 /* ---- Utilitaires ---- */
@@ -839,6 +839,44 @@ p:last-child { margin-bottom: 0; }
   flex-wrap: wrap;
   gap: 0.5rem;
 }
+
+/* ================================================
+   EXCEPTIONS À LA JUSTIFICATION GLOBALE
+   Zones courtes, centrées ou de nature UI où justify
+   ne s'applique pas (hero, CTA, cartes courtes, footer)
+   ================================================ */
+
+/* Sections centrées — sous-titres */
+.section-entete p { text-align: center; hyphens: none; }
+
+/* Hero accueil */
+.hero-accroche { text-align: left; hyphens: none; }
+.hero-identite  { text-align: left; hyphens: none; }
+
+/* Hero pages intérieures */
+.page-hero p { text-align: center !important; hyphens: none !important; }
+
+/* CTA final */
+.cta-final p { text-align: center; hyphens: none; }
+
+/* Cartes courtes — texte court, gauche plus lisible */
+.carte-avantage p    { text-align: left; hyphens: none; }
+.phase p             { text-align: left; hyphens: none; }
+.financement-carte p { text-align: left; hyphens: none; }
+.synergie-carte p    { text-align: left; hyphens: none; }
+.credibilite-item-texte span { text-align: left; hyphens: none; }
+
+/* Contact — infos pratiques */
+.contact-item p { text-align: left; hyphens: none; }
+.carte-rdv p    { text-align: center; hyphens: none; }
+
+/* Footer — coordonnées */
+.footer-col p { text-align: left; hyphens: none; }
+
+/* Placeholder blog/témoignages */
+.temoignages-placeholder { text-align: center; }
+.temoignages-placeholder p { text-align: center; hyphens: none; }
+.blog-vide p { text-align: center; hyphens: none; }
 
 /* ================================================
    RESPONSIVE
