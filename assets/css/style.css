@@ -860,6 +860,11 @@ p:last-child { margin-bottom: 0; }
 
 @media (max-width: 640px) {
   :root { --padding-section: 3.5rem 1.25rem; }
+
+  /* Logo — masquer le sous-titre sur petits écrans pour éviter les débordements */
+  .logo-titre { display: none; }
+
+  /* Navigation mobile */
   .nav-principale {
     display: none;
     position: fixed;
@@ -883,11 +888,25 @@ p:last-child { margin-bottom: 0; }
   .nav-principale a:last-child { border-bottom: none; }
   .nav-cta .btn { display: none; }
   .menu-toggle { display: flex; }
+
+  /* Grilles */
   .grille-avantages { grid-template-columns: 1fr; }
   .temoignages-grille { grid-template-columns: 1fr; }
   .footer-grille { grid-template-columns: 1fr; }
   .footer-bas { flex-direction: column; text-align: center; }
+
+  /* Hero accueil */
+  .hero-contenu { padding: 2.5rem 1.25rem 3rem; }
   .hero-badges { display: none; }
-  .hero-overlay { background: linear-gradient(to bottom, rgba(43,76,126,0.93) 0%, rgba(43,76,126,0.82) 100%); }
+  .hero-overlay { background: linear-gradient(to bottom, rgba(43,76,126,0.95) 0%, rgba(43,76,126,0.88) 100%); }
   .approche-badge-flottant { display: none; }
+
+  /* Hero des pages intérieures — réduire le padding (surchargé sur les pages inline) */
+  .page-hero { padding: 6rem 1.25rem 3rem !important; }
+  .page-hero p { font-size: 1rem !important; }
+
+  /* Boutons : autoriser le retour à la ligne + pleine largeur dans les zones CTA */
+  .btn { white-space: normal; }
+  .hero-contenu .btn--principal,
+  .cta-final .btn { width: 100%; justify-content: center; }
 }
