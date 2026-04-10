@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=5">
+  <link rel="stylesheet" href="assets/css/style.css?v=6">
 
   <style>
     .page-hero {
@@ -58,7 +58,7 @@
 
     .financement-grille {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
     }
     .financement-carte {
@@ -70,6 +70,44 @@
     }
     .financement-carte h3 { font-size: 1rem; margin-bottom: 0.5rem; }
     .financement-carte p { font-size: 0.88rem; color: var(--texte-secondaire); }
+
+    .format-vastrh {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .format-item {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: #fff;
+      border: 1px solid var(--bordure);
+      border-radius: var(--rayon-large);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--ombre);
+    }
+    .format-item svg {
+      width: 28px; height: 28px;
+      color: var(--bleu-profond);
+      flex-shrink: 0;
+      stroke: currentColor;
+      margin-top: 0.1rem;
+    }
+    .format-item strong { display: block; font-family: var(--font-accent); font-size: 0.95rem; color: var(--bleu-profond); margin-bottom: 0.2rem; }
+    .format-item span { font-size: 0.83rem; color: var(--texte-secondaire); }
+
+    .citation {
+      border-left: 4px solid var(--bleu-clair);
+      padding: 1rem 1.5rem;
+      background: var(--bleu-tres-clair);
+      border-radius: 0 var(--rayon-large) var(--rayon-large) 0;
+    }
+    .citation p { font-style: italic; font-size: 1rem; color: var(--bleu-profond); margin: 0; }
+
+    @media (max-width: 640px) {
+      .format-vastrh { flex-direction: column; }
+    }
 
     .pourquoi-moi {
       display: grid;
@@ -143,16 +181,25 @@
       <div class="fade-in">
         <span class="etiquette">Définition</span>
         <h2>C'est quoi concrètement ?</h2>
-        <p>Le bilan de compétences est un dispositif d'accompagnement professionnel qui vous aide à analyser vos compétences professionnelles et personnelles, vos aptitudes et vos motivations — pour définir un projet professionnel ou de formation.</p>
-        <p>Ce n'est pas une thérapie, ce n'est pas du coaching de vie. C'est une démarche structurée, encadrée par la loi, qui vous donne de vraies clés pour avancer.</p>
 
-        <h3 style="margin: 1.5rem 0 0.75rem;">Pour qui ?</h3>
+        <div class="citation" style="margin-bottom: 1.25rem;">
+          <p>« Le bilan de compétences permet d'analyser ses compétences professionnelles et personnelles, ses aptitudes et ses motivations en appui d'un projet d'évolution professionnelle et, le cas échéant, de formation. »</p>
+          <div style="font-size:0.78rem; font-family:var(--font-accent); color:var(--texte-secondaire); margin-top:0.5rem; font-style:normal;">— Code du travail, art. L. 6313-4</div>
+        </div>
+
+        <p>Ce n'est pas une thérapie, ce n'est pas du coaching de vie. C'est une démarche structurée, encadrée par la loi, qui vous donne de vraies clés pour avancer — que vous ayez une idée précise ou que vous soyez au tout début de votre réflexion, qu'il s'agisse d'un changement radical ou non.</p>
+
+        <h3 style="margin: 1.5rem 0 0.75rem;">À qui s'adresse le bilan ?</h3>
         <div class="liste-pour-qui">
-          <div class="pour-qui-item">Salariés en questionnement sur leur carrière ou en perte de sens</div>
-          <div class="pour-qui-item">Personnes en reconversion professionnelle</div>
-          <div class="pour-qui-item">Indépendants qui souhaitent faire évoluer leur activité</div>
-          <div class="pour-qui-item">Demandeurs d'emploi qui veulent clarifier leur projet</div>
-          <div class="pour-qui-item">Fonctionnaires en bilan de mi-carrière</div>
+          <div class="pour-qui-item">Toute personne en activité professionnelle : en poste, en congé parental, en arrêt maladie, en cessation temporaire d'activité</div>
+          <div class="pour-qui-item" style="color:var(--texte-secondaire); font-size:0.88rem; font-style:italic;">Note : les étudiants et les retraités ne sont pas éligibles à ce dispositif.</div>
+        </div>
+
+        <h3 style="margin: 1.5rem 0 0.75rem;">Pourquoi le faire ?</h3>
+        <div class="liste-pour-qui">
+          <div class="pour-qui-item"><strong>Pour construire votre projet professionnel</strong> — que vous soyez au début de votre réflexion ou avec une idée déjà précise</div>
+          <div class="pour-qui-item"><strong>Parce que vous avez besoin de faire le point</strong> — sur votre carrière, vos aspirations, votre équilibre vie pro/perso, vos compétences</div>
+          <div class="pour-qui-item"><strong>Parce que vous êtes contraint de changer de métier</strong> — à la suite d'une maladie, d'un accident, d'un burn out, ou parce que votre emploi évolue ou n'existe plus</div>
         </div>
       </div>
       <div class="fade-in">
@@ -164,37 +211,67 @@
   </div>
 </section>
 
-<!-- LES 3 PHASES -->
+<!-- LES 4 ÉTAPES VAST RH -->
 <section class="section section--gris">
   <div class="conteneur">
     <div class="section-entete fade-in">
-      <span class="etiquette">Déroulé</span>
-      <h2>Un accompagnement en 3 phases</h2>
-      <p>Le bilan de compétences se déroule sur plusieurs semaines, en présentiel dans mon cabinet à Cestas. Jusqu'à 24 heures d'accompagnement individualisé, à votre rythme.</p>
+      <span class="etiquette">Déroulé — Méthode VAST RH</span>
+      <h2>Les 4 étapes du bilan de compétences</h2>
+      <p>Le bilan se déroule sur plusieurs semaines, à votre rythme, en présentiel dans mon cabinet à Cestas. Vous serez l'architecte de votre avenir.</p>
     </div>
 
+    <!-- Format pratique VAST RH -->
+    <div class="format-vastrh fade-in">
+      <div class="format-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <div>
+          <strong>8 séances de 2h</strong>
+          <span>Chaque séance reprend le travail effectué pour faire avancer la construction de votre projet</span>
+        </div>
+      </div>
+      <div class="format-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        <div>
+          <strong>En présentiel uniquement</strong>
+          <span>Le cabinet VAST RH propose exclusivement des bilans en présentiel pour faciliter les échanges</span>
+        </div>
+      </div>
+      <div class="format-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div>
+          <strong>Travail personnel (~2h/semaine)</strong>
+          <span>Exercices, questionnaires et tests psychométriques à réaliser entre les séances</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 étapes -->
     <div class="phases">
       <div class="phase fade-in">
         <div class="phase-numero">1</div>
-        <h3>Phase préliminaire</h3>
-        <p>Nous définissons ensemble vos besoins, vos attentes et les objectifs du bilan. Je vous présente les méthodes et outils que nous allons utiliser.</p>
-        <p style="font-size:0.88rem; color: var(--texte-secondaire); margin-top:0.5rem;">C'est le moment de poser toutes vos questions, sans filtre.</p>
-        <span class="phase-duree">2 à 3 séances</span>
+        <h3>S'interroger et se connaître</h3>
+        <p>Vous faites le point sur votre situation actuelle, votre histoire, vos besoins et vos envies. Vous ouvrez le champ des possibles pour commencer à imaginer l'avenir.</p>
+        <span class="phase-duree">Partir sur de bonnes bases</span>
       </div>
 
       <div class="phase fade-in">
         <div class="phase-numero">2</div>
-        <h3>Phase d'investigation</h3>
-        <p>Le cœur du bilan. Nous explorons ensemble vos compétences, vos valeurs, vos motivations et vos aspirations grâce à des outils validés et des échanges en profondeur.</p>
-        <p style="font-size:0.88rem; color: var(--texte-secondaire); margin-top:0.5rem;">Tests, exercices pratiques, analyse de votre parcours — tout est pensé pour vous aider à vous connaître mieux.</p>
-        <span class="phase-duree">Le cœur de l'accompagnement</span>
+        <h3>Vos talents, vos fibres</h3>
+        <p>C'est le moment de dresser votre portefeuille de compétences professionnelles et personnelles pour les mettre en regard de votre projet. Analyse approfondie de votre identité professionnelle et personnelle.</p>
+        <span class="phase-duree">Qui êtes-vous vraiment ?</span>
       </div>
 
       <div class="phase fade-in">
         <div class="phase-numero">3</div>
-        <h3>Phase de conclusion</h3>
-        <p>Nous formalisons votre projet professionnel, définissons un plan d'action concret et je vous remets un document de synthèse confidentiel que vous seul conservez.</p>
-        <p style="font-size:0.88rem; color: var(--texte-secondaire); margin-top:0.5rem;">Vous repartez avec une vision claire et les prochaines étapes identifiées.</p>
+        <h3>Construire et tester la faisabilité</h3>
+        <p>Vous affinez votre projet, le confrontez à la réalité, à vos envies, vos besoins, ceux de votre famille. Exploration des pistes, des secteurs, des métiers — enquêtes et rencontres. Vous entrez dans le concret.</p>
+        <span class="phase-duree">Faisabilité et enquêtes</span>
+      </div>
+
+      <div class="phase fade-in">
+        <div class="phase-numero">4</div>
+        <h3>Valider et passer à l'action</h3>
+        <p>Il est temps de tout organiser, de se projeter et de passer à l'action. Je vous remets un document de synthèse confidentiel que vous seul conservez — votre feuille de route pour la suite.</p>
         <span class="phase-duree">Votre feuille de route</span>
       </div>
     </div>
@@ -215,24 +292,32 @@
         <div class="carte-icone" style="margin: 0 0 1rem;">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
         </div>
-        <h3>Compte Personnel de Formation (CPF)</h3>
-        <p>Le financement le plus courant. Le CPF peut couvrir jusqu'à <strong>1 600 €</strong> du bilan. Un reste à charge de <strong>103 €</strong> s'applique pour les salariés du secteur privé — les demandeurs d'emploi et les personnes bénéficiant d'un co-financement employeur en sont exemptés. Vérifiez votre solde sur <a href="https://moncompteformation.gouv.fr" target="_blank" rel="noopener" style="color: var(--bleu-clair);">moncompteformation.gouv.fr</a>.</p>
+        <h3>Par votre CPF</h3>
+        <p>Votre Compte Personnel de Formation peut couvrir le bilan en totalité ou partiellement. Un reste à charge d'environ <strong>103 €</strong> s'applique pour les salariés du secteur privé. Vérifiez votre solde sur <a href="https://moncompteformation.gouv.fr" target="_blank" rel="noopener" style="color: var(--bleu-clair);">moncompteformation.gouv.fr</a>.</p>
       </div>
 
       <div class="financement-carte fade-in">
         <div class="carte-icone" style="margin: 0 0 1rem;">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
         </div>
-        <h3>Plan de développement des compétences</h3>
-        <p>Votre employeur peut financer votre bilan dans le cadre du plan de formation de l'entreprise. À initier avec votre service RH ou votre manager.</p>
+        <h3>Par votre employeur</h3>
+        <p>Votre employeur peut financer votre bilan via l'OPCO auquel adhère votre entreprise, ou directement dans le cadre du plan de développement des compétences. À initier avec votre service RH.</p>
+      </div>
+
+      <div class="financement-carte fade-in">
+        <div class="carte-icone" style="margin: 0 0 1rem;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Par France Travail ou l'Agefiph</h3>
+        <p>Si vous êtes demandeur d'emploi, France Travail peut prendre en charge votre bilan. Si vous bénéficiez d'une RQTH (reconnaissance travailleur handicapé), l'Agefiph peut intervenir en financement.</p>
       </div>
 
       <div class="financement-carte fade-in">
         <div class="carte-icone" style="margin: 0 0 1rem;">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         </div>
-        <h3>Fonds propres ou autre dispositif</h3>
-        <p>Vous pouvez également financer votre bilan sur vos fonds propres. D'autres dispositifs existent selon votre situation (Pôle Emploi, OPCO, Transition Pro…). Discutons-en ensemble.</p>
+        <h3>Par vos fonds propres</h3>
+        <p>Vous pouvez financer votre bilan en totalité ou partiellement sur vos ressources personnelles. D'autres dispositifs peuvent compléter ce financement selon votre situation (Transition Pro…). On en parle ensemble lors de l'appel découverte.</p>
       </div>
     </div>
   </div>

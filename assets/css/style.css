@@ -438,7 +438,7 @@ p:last-child { margin-bottom: 0; }
    ================================================ */
 .phases {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   position: relative;
 }
@@ -447,8 +447,8 @@ p:last-child { margin-bottom: 0; }
   content: '';
   position: absolute;
   top: 2.5rem;
-  left: calc(16.66% + 1rem);
-  right: calc(16.66% + 1rem);
+  left: calc(12.5% + 1rem);
+  right: calc(12.5% + 1rem);
   height: 2px;
   background: linear-gradient(to right, var(--bleu-clair), var(--bleu-profond));
   z-index: 0;
@@ -883,7 +883,7 @@ p:last-child { margin-bottom: 0; }
    ================================================ */
 @media (max-width: 900px) {
   .grille-avantages { grid-template-columns: repeat(2, 1fr); }
-  .phases { grid-template-columns: 1fr; gap: 2rem; }
+  .phases { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
   .phases::before { display: none; }
   .approche-grille { grid-template-columns: 1fr; gap: 2.5rem; }
   .approche-image { max-width: 340px; margin: 0 auto; }
