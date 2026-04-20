@@ -54,6 +54,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // ---- Carousel témoignages ----
+  const carousel = document.getElementById('carousel-temoignages');
+  if (carousel) {
+    const track = document.getElementById('carousel-track');
+    const slides = track.querySelectorAll('.temoignage');
+    const dotsContainer = document.getElementById('carousel-dots');
+    const btnPrev = document.getElementById('carousel-prev');
+    const btnNext = document.getElementById('carousel-next');
+    let current = 0;
+
+    // Créer les points
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' actif' : '');
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', `Avis ${i + 1}`);
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function goTo(index) {
+      current = (index + slides.length) % slides.length;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('actif', i === current);
+      });
+    }
+
+    btnPrev.addEventListener('click', () => goTo(current - 1));
+    btnNext.addEventListener('click', () => goTo(current + 1));
+
+    // Swipe tactile
+    let startX = 0;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+    }, { passive: true });
+
+    // Défilement automatique toutes les 6s
+    let timer = setInterval(() => goTo(current + 1), 6000);
+    carousel.addEventListener('mouseenter', () => clearInterval(timer));
+    carousel.addEventListener('mouseleave', () => { timer = setInterval(() => goTo(current + 1), 6000); });
+  }
+
   // ---- Apparition au scroll (fade-in) ----
   const cibles = document.querySelectorAll('.fade-in');
   if (cibles.length > 0) {

@@ -619,21 +619,74 @@ p:last-child { margin-bottom: 0; }
 /* ================================================
    SECTION "TÉMOIGNAGES"
    ================================================ */
-.temoignages-grille {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+/* Carousel témoignages */
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .temoignage {
+  min-width: 100%;
   background: #fff;
   border: 1px solid var(--bordure);
   border-radius: var(--rayon-large);
-  padding: 2rem;
+  padding: 2.5rem 3rem;
   box-shadow: var(--ombre);
   display: flex;
   flex-direction: column;
+  gap: 1.25rem;
+}
+
+.carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.carousel-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--bordure);
+  background: #fff;
+  color: var(--bleu-profond);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+.carousel-btn:hover { background: var(--bleu-tres-clair); border-color: var(--bleu-clair); }
+.carousel-btn svg { width: 18px; height: 18px; stroke: currentColor; }
+
+.carousel-dots {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bordure);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  padding: 0;
+}
+.carousel-dot.actif {
+  background: var(--bleu-profond);
+  transform: scale(1.3);
 }
 
 .temoignage-etoiles {
@@ -939,7 +992,7 @@ p:last-child { margin-bottom: 0; }
 
   /* Grilles */
   .grille-avantages { grid-template-columns: 1fr; }
-  .temoignages-grille { grid-template-columns: 1fr; }
+  .temoignage { padding: 1.75rem 1.25rem; }
   .temoignage-texte { text-align: left; hyphens: none; }
   .footer-grille { grid-template-columns: 1fr; }
   .footer-bas { flex-direction: column; text-align: center; }
