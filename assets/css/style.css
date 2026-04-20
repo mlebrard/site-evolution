@@ -623,16 +623,18 @@ p:last-child { margin-bottom: 0; }
 .carousel {
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .carousel-track {
   display: flex;
+  flex-wrap: nowrap;
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
 
 .temoignage {
-  min-width: 100%;
+  flex: 0 0 auto; /* largeur fixée en px par JS */
   background: #fff;
   border: 1px solid var(--bordure);
   border-radius: var(--rayon-large);

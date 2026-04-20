@@ -58,17 +58,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const carousel = document.getElementById('carousel-temoignages');
   if (carousel) {
     const track = document.getElementById('carousel-track');
-    const slides = track.querySelectorAll('.temoignage');
+    const slides = Array.from(track.querySelectorAll('.temoignage'));
     const dotsContainer = document.getElementById('carousel-dots');
     const btnPrev = document.getElementById('carousel-prev');
     const btnNext = document.getElementById('carousel-next');
     let current = 0;
 
+    // Fixer la largeur de chaque slide = largeur du carousel
+    function setWidths() {
+      const w = carousel.offsetWidth;
+      slides.forEach(s => { s.style.width = w + 'px'; });
+    }
+    setWidths();
+    window.addEventListener('resize', () => { setWidths(); goTo(current); });
+
     // Créer les points
     slides.forEach((_, i) => {
       const dot = document.createElement('button');
       dot.className = 'carousel-dot' + (i === 0 ? ' actif' : '');
-      dot.setAttribute('role', 'tab');
       dot.setAttribute('aria-label', `Avis ${i + 1}`);
       dot.addEventListener('click', () => goTo(i));
       dotsContainer.appendChild(dot);
@@ -76,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function goTo(index) {
       current = (index + slides.length) % slides.length;
-      track.style.transform = `translateX(-${current * 100}%)`;
+      track.style.transform = `translateX(-${current * carousel.offsetWidth}px)`;
       dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
         d.classList.toggle('actif', i === current);
       });
